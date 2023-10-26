@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1 id="currentScoreHeading"></h1>
+    <h1 id="highScoreHeading"></h1>
+
+    <script>
+        // Retrieve the scores from local storage
+        var currentScore = localStorage.getItem('currentScore');
+        var highScore = localStorage.getItem('highScore');
+
+        // Display the scores as headings or text
+        document.getElementById('currentScoreHeading').textContent = 'Current Score: ' + currentScore;
+        document.getElementById('highScoreHeading').textContent = 'High Score: ' + highScore;
+
+        // Show a prompt box to enter the username
+        var username = prompt("Please enter your username:");
+
+        // Validate that a username was entered
+        if (highScore && username) {
+            $.ajax({
+                type: 'POST',
+                url: 'hetrix_score.php', // Replace with the correct URL of your PHP script
+                data: { username: username, score: highScore },
+                success: function (response) {
+                    console.log(response); // You can handle the server's response here
+                },
+                error: function () {
+                    console.error('Error sending high score to the server.');
+                }
+            });
+        } else {
+            console.error('Username or high score is empty.');
+        }
+    </script>
+</body>
+</html>

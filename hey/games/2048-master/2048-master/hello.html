@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 High Score</title>
+</head>
+<body>
+    <h1>2048 High Score</h1>
+    <p>High Score: <span id="highScoreDisplay">Loading...</span></p>
+
+    <script src="js/local_storage_manager.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery for AJAX -->
+
+    <script>
+        // Retrieve the high score from local storage
+        var highScore = localStorage.getItem('bestScore');
+        var username = prompt("Please enter your username:");
+
+        // Display the high score and username in the console for debugging
+        console.log("High Score:", highScore);
+        console.log("Username:", username);
+
+        // Display the high score on the page
+        document.getElementById('highScoreDisplay').textContent = highScore || "Not available";
+
+        // Send the high score and username to the server via AJAX (assuming you're using jQuery)
+        if (highScore && username) {
+            $.ajax({
+                type: 'POST',
+                url: 'save_score.php', // Replace with the correct URL of your PHP script
+                data: { username: username, score: highScore },
+                success: function (response) {
+                    console.log(response); // You can handle the server's response here
+                },
+                error: function () {
+                    console.error('Error sending high score to the server.');
+                }
+            });
+        } else {
+            console.error('Username or high score is empty.');
+        }
+    </script>
+</body>
+</html>

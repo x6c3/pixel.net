@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>pixel.in</title>
+  <link rel="stylesheet" href="../styles/register.css">
+</head>
+<body>
+  <div class="wrapper">
+    <span class="icon-close"><i class="fa-solid fa-xmark"></i></span>
+
+    <div class="form-box login">
+      <h2>Login</h2>
+      <form action="login.php" method="post">
+        
+        <div class="input-box">
+          <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+          <input type="text" required class="form-control" id="email" name="email">
+          <label><b>Email</b></label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><i class="fa-solid fa-lock"></i></span>
+          <input type="password" required class="form-control" id="password" name="password">
+          <label><b>Password</b></label>
+        </div>
+        <div class="remember-forgot">
+          <label><a href="reset_password.php">Forgot Password</a></label>
+          <a href="#"></a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="login-register">
+          <p>Don't have an account<a href="register.html" class="login-link">Register</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</body>
+</html>

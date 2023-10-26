@@ -1,0 +1,104 @@
+body{ 
+	background-image: url("hell.png");
+    background-repeat: no-repeat;
+    background-size: cover;	
+	background-position: center center;
+  	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center;
+
+}
+
+header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 97%;
+	padding: 40px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 99
+}
+
+
+.logo{
+	font-size: 2em;
+	color: hsl(0, 0%, 0%);
+	user-select: none;
+
+}
+.navigation{
+	background: transparent; 
+}
+.navigation a{
+	position: relative;
+	
+	font-size: 1.1em;
+	color: hsl(0, 0%, 0%);
+	text-decoration: none;
+	font-weight: 500;
+	margin-left: 40px;
+}
+
+.navigation a:hover::after{
+	transform-origin:left ;
+	transform: scaleX(1);
+}
+.navigation .btnLogin-popup{
+	width: 130px;
+	height: 50px;
+	background: transparent;
+	border: 2px solid #0a0000;
+	outline: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 1.1em;
+	color: #000000;
+	font-weight: 500;
+	margin-left: 40px;
+	transition: .5s;
+	
+}
+.navigation .btnLogin-popup:hover{
+    background:#fec8d8;
+    color:#000000;
+    }
+.navig .btnSubmit-popup{
+        width: 140px;
+        height: 50px;
+		background:transparent;
+        border: 2px solid hsl(0, 0%, 0%);
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: 700;
+        margin-left: 90px;
+        transition: .5s;
+}
+.navig .btnSubmit-popup:hover{
+        background: #fec8d8;
+        color:hsl(0, 0%, 0%);
+}  
+
+#user-icon-container {
+    display: flex;
+    align-items: center; /* Vertically center the icon */
+    margin-right: auto; /* Pushes the user icon to the left */
+}
+
+#user-icon img {
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Adjust the size as needed */
+    margin-right: 10px; /* Add spacing to the right of the icon */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left:auto ;
+}
+
+
