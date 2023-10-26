@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .score {
+            font-size: 24px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scoreboard</h1>
+    
+    <div class="score">
+        <!-- JavaScript will populate the user's score here -->
+    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scoreboard</title>
+        <style>
+            /* Add your CSS styles here */
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            .score {
+                font-size: 24px;
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Scoreboard</h1>
+        
+        <div class="score">
+            <!-- JavaScript will populate the user's score here -->
+        </div>
+    
+        <script>
+            // JavaScript to get the score from the query parameter and display it
+            const urlParams = new URLSearchParams(window.location.search);
+            const score = urlParams.get('score');
+    
+            // Prompt for the username
+            let username = prompt('Please enter your username:');
+            
+            // Display the score and username
+            const scoreElement = document.querySelector('.score');
+            if (score !== null) {
+                scoreElement.textContent = `Username: ${username}, Your Score: ${score}`;
+                
+                // Send the username and score to the server
+                fetch('submit_score.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, score }),
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
+            } else {
+                scoreElement.textContent = 'No score data available.';
+            }
+        </script>
+    </body>
+    </html>
+    
+</body>
+</html>
